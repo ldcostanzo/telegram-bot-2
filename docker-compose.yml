@@ -1,0 +1,12 @@
+services:
+  telegram-bot:
+    build: .
+    container_name: bot-telegram
+    env_file:
+      - .env  # <-- Percorso corretto
+    restart: unless-stopped
+    ports:
+      - "443:443"  # Porta per Webhook (se usi Webhook invece di Polling)
+    volumes:
+      - ${CERT_PATH}:/certs/cert.pem
+      - ${KEY_PATH}:/certs/key.pem
