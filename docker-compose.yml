@@ -1,7 +1,7 @@
 services:
-  telegram-bot:
+  bot:
     build: .
-    container_name: bot-telegram
+    container_name: Bot
     env_file:
       - .env  # <-- Percorso corretto
     restart: unless-stopped
